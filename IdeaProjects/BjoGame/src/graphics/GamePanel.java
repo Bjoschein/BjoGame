@@ -80,6 +80,7 @@ public class GamePanel extends Canvas implements Runnable {
     double beforeCycle;
     double afterCycle;
     double timePassedSinceLastCycle = .0d;
+    pixelDrawer.createFractal();
 
     while (running) {
 
@@ -97,9 +98,6 @@ public class GamePanel extends Canvas implements Runnable {
   }
 
   private void update() {
-//    if(multiplicator > height){
-//      multiplicator = 0.;
-//    }
   }
 
   private void render() {
@@ -108,14 +106,6 @@ public class GamePanel extends Canvas implements Runnable {
       createBufferStrategy(2);
       return;
     }
-
-    multiplicator += 9;
-    pixelDrawer.getRandomPixels();
-    pixelDrawer.setMultiplicator(multiplicator);
-    if(multiplicator > 93){
-      multiplicator = 0.;
-    }
-    System.out.println(multiplicator);
 
     for (int i = 0; i < pixels.length; i++) {
       pixels[i] = pixelDrawer.getPixels()[i];

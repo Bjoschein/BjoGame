@@ -20,14 +20,19 @@ import java.util.Random;
 
 public class PixelDrawer {
   private int[] pixels;
+  private int width;
+  private int height;
   private int arraySize;
   private Double multiplicator = 1.0;
   private Random random;
 
 
   public PixelDrawer(int width, int height) {
+    this.width = width;
+    this.height = height;
     arraySize = width * height;
     random = new Random();
+    pixels = new int[arraySize];
   }
 
   // Strategy-Pattern hier :)
@@ -41,6 +46,18 @@ public class PixelDrawer {
         j = 0;
       }
       pixels[i] = j;
+    }
+  }
+
+  public void createFractal(){
+    for(int y = 0; y < width; y++){
+      for(int x = 0; x < height; x++){
+        if(x==y){
+          pixels[x*y] = 1221;
+        } else {
+          pixels[x*y] = 2233;
+        }
+      }
     }
   }
 
